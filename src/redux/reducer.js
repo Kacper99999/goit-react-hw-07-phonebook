@@ -1,30 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchContacts } from "./operations";
 
+const handlePending = (state) => {
+    state.isLoading = true;
+}
 
-const initialState = {
-    contacts: [],
-    filter: '',
-    }
+const hendleRejeced = (state , action) => {
+    state.isLoading = false;
+    state.error = action.payload;
+}
+
 
 const phonebook = createSlice({
     name:"phonebook",
-    initialState,
-    reducers:{
-        addPhone : (state, action) =>{
-            state.contacts.push(action.payload);
-        },
-        removePhone : (state, action) =>{
-            state.contacts = state.contacts.filter(con => con.id !== action.payload);
-        },
-        filterContact : (state, action) =>{
-            state.filter = action.payload;
-        }
+    initialState : {
+        contacts:[],
+        isLoading:false,
+        error:null
+    },
+    extraRducers: builder => {
+        builder
+        .addCase(fetchContacts.pending, handlePending)
+        .addCase(fetchContacts.fulfilled, (state, action) => {
+            state.contacts = action.payload;
+            state.isLoading = false;
+            state.error = null;
+        })
+        .addCase(fetchContacts.rejected, hendleRejeced)
     }
-
+    
 })
 
-export const {addPhone, removePhone, filterContact} = phonebook.actions;
 
-export default phonebook.reducer;
+export const phonebookReducer = phonebook.reducer;
+
+
 
 

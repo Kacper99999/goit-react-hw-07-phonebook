@@ -1,48 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchContacts } from "../redux/operations";
+import { getContacts } from "../redux/selectors";
 
-
-function ContactList({contacts, filter, filteredContacts,removeContact}){
+function ContactList(){
+  const contacts = useSelector(getContacts);
     return(
-        <>
-        {filter === "" ? (
-        <ul>
-          {contacts.map((contact) => (
-            <li key={contact.id}>
-              {contact.name} - {contact.number} <button onClick={() => removeContact(contact.id)}>Delate</button>
-            </li>
-          ))}
-        </ul>
-        ) : (
-        <ul>
-          {filteredContacts.map((contact) => (
-            <li key={contact.id}>
-              {contact.name} - {contact.number} <button onClick={() => removeContact(contact.id)}>Delate</button>
-              </li>
-          ))}
-        </ul>
-      )}
-        </>
+     <>
+      <ul>
+      {contacts.map((con) => {
+        <li key={con.id}>
+          {con.name}:{con.number}
+        </li>
+      })}
+      </ul>
+     </>
     )
 }
 
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      number: PropTypes.string
-    })
-  ).isRequired,
-  filter: PropTypes.string,
-  filteredContacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      number: PropTypes.string,
-    })
-  ).isRequired,
-  removeContact: PropTypes.func,
-};
+// ContactList.propTypes = {
+//   contacts: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string,
+//       name: PropTypes.string,
+//       number: PropTypes.string
+//     })
+//   ).isRequired,
+//   filter: PropTypes.string,
+//   filteredContacts: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.string,
+//       name: PropTypes.string,
+//       number: PropTypes.string,
+//     })
+//   ).isRequired,
+//   removeContact: PropTypes.func,
+// };
 
 export default ContactList
