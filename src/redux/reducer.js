@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchContacts } from "./operations";
+import { fetchContacts , addContact } from "./operations";
 
 const handlePending = (state) => {
     state.isLoading = true;
@@ -18,7 +18,7 @@ const phonebook = createSlice({
         isLoading:false,
         error:null
     },
-    extraRducers: builder => {
+    extraReducers: builder => {
         builder
         .addCase(fetchContacts.pending, handlePending)
         .addCase(fetchContacts.fulfilled, (state, action) => {
@@ -27,6 +27,13 @@ const phonebook = createSlice({
             state.error = null;
         })
         .addCase(fetchContacts.rejected, hendleRejeced)
+        .addCase(addContact.pending, handlePending)
+        .addCase(addContact.fulfilled, (state, action) => {
+            state.contacts = [...state.contacts,action.payload];
+            state.isLoading = false;
+            state.error = null;
+        })
+        .addCase(addContact.rejected, hendleRejeced)
     }
     
 })

@@ -7,14 +7,22 @@ import { getContacts } from "../redux/selectors";
 
 function ContactList(){
   const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContacts())
+  },[dispatch])
+  console.log(contacts);
     return(
      <>
       <ul>
-      {contacts.map((con) => {
+      {contacts.length > 0 ? (
+        contacts.map((con) => (
         <li key={con.id}>
-          {con.name}:{con.number}
+          {con.name}:{con.phone}
         </li>
-      })}
+      ))) : (
+        <p>no contacts</p>
+      )}
       </ul>
      </>
     )
