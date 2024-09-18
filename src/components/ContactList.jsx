@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchContacts } from "../redux/operations";
 import { getContacts, getFilter } from "../redux/selectors";
+import { FaTimes } from "react-icons/fa";
 
 function ContactList(){
   const contacts = useSelector(getContacts);
@@ -26,7 +27,7 @@ function ContactList(){
       {contacts.length > 0 ? (
         contacts.map((con) => (
         <li key={con.id}>
-          {con.name}:{con.phone}
+          {con.name} : {con.phone} <button><FaTimes/></button>
         </li>
       ))) : (
         <p>no contacts</p>
@@ -35,7 +36,7 @@ function ContactList(){
         <ul>
           {filteredContacts.map((con) => (
             <li key={con.id}>
-              {con.name}:{con.phone}
+              {con.name} : {con.phone} <button><FaTimes/></button>
             </li>
           ))}
         </ul>
