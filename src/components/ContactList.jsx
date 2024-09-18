@@ -3,17 +3,25 @@ import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchContacts } from "../redux/operations";
-import { getContacts } from "../redux/selectors";
+import { getContacts, getFilter } from "../redux/selectors";
 
 function ContactList(){
   const contacts = useSelector(getContacts);
+  const filters = useSelector(getFilter);
+
+  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().startsWith(filters));
+
+  console.log(filteredContacts)
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchContacts())
   },[dispatch])
-  console.log(contacts);
+
+
     return(
      <>
+     {filteredContacts === "" ? (
       <ul>
       {contacts.length > 0 ? (
         contacts.map((con) => (
@@ -23,7 +31,17 @@ function ContactList(){
       ))) : (
         <p>no contacts</p>
       )}
-      </ul>
+      </ul> ) : (
+        <ul>
+          {filteredContacts.map((con) => (
+            <li key={con.id}>
+              {con.name}:{con.phone}
+            </li>
+          ))}
+        </ul>
+
+      )
+  }
      </>
     )
 }

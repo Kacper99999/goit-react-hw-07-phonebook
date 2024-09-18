@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 
 
 
-function Contacts (){
+function ContactsForm (){
   const dispatch = useDispatch();
   const [name,setName] = useState("");
   const [phone,setPhone] = useState("");
@@ -40,4 +40,4 @@ function Contacts (){
 //   handleSubmit: PropTypes.func
 // }
 
-export default Contacts;
+export default ContactsForm;

@@ -11,7 +11,7 @@ const hendleRejeced = (state , action) => {
 }
 
 
-const phonebook = createSlice({
+const contactsSlice = createSlice({
     name:"phonebook",
     initialState : {
         contacts:[],
@@ -39,7 +39,7 @@ const phonebook = createSlice({
 })
 
 
-export const phonebookReducer = phonebook.reducer;
+export const contactsReducer = contactsSlice.reducer;
 
 
 
