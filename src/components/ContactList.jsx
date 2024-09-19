@@ -29,7 +29,7 @@ function ContactList(){
       {contacts.length > 0 ? (
         contacts.map((con) => (
         <li key={con.id}>
-          {con.name} : {con.phone} <button onClick={(e) => handleDelate(con.id)}><FaTimes/></button>
+          {con.name} : {con.phone} <button onClick={() => handleDelate(con.id)}><FaTimes/></button>
         </li>
       ))) : (
         <p>no contacts</p>
@@ -38,7 +38,7 @@ function ContactList(){
         <ul>
           {filteredContacts.map((con) => (
             <li key={con.id}>
-              {con.name} : {con.phone} <button onClick={(e) => handleDelate(con.id)}><FaTimes/></button>
+              {con.name} : {con.phone} <button onClick={() => handleDelate(con.id)}><FaTimes/></button>
             </li>
           ))}
         </ul>
