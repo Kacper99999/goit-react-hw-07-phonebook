@@ -2,6 +2,7 @@ import React from "react";
 import { useState , useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { filterContacts } from "../../redux/filtersSlice";
+import css from "./Filter.module.css"
 
 
 function Filter(){
@@ -15,7 +16,7 @@ function Filter(){
 
     return(
         <>
-        <input type="text" onChange={(e) => setfilter(e.target.value)}/>
+        <input className={css.input} type="text" placeholder="Find contact" onChange={(e) => setfilter(e.target.value)}/>
         </>
  )
 }

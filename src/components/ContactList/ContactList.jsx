@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchContacts, delateContact } from "../../redux/operations";
 import { getContacts, getFilter } from "../../redux/selectors";
 import { FaTimes } from "react-icons/fa";
+import css from "./ContactList.module.css"
 
 function ContactList(){
   const contacts = useSelector(getContacts);
@@ -24,20 +25,20 @@ function ContactList(){
     return(
      <>
      {filteredContacts === "" ? (
-      <ul>
+      <ul className={css.ul}>
       {contacts.length > 0 ? (
         contacts.map((con) => (
-        <li key={con.id}>
-          {con.name} : {con.phone} <button onClick={() => handleDelate(con.id)}><FaTimes/></button>
+        <li className={css.li} key={con.id}>
+          {con.name} : {con.phone} <button className={css.button} onClick={() => handleDelate(con.id)}><FaTimes/></button>
         </li>
       ))) : (
         <p>no contacts</p>
       )}
       </ul> ) : (
-        <ul>
+        <ul className={css.ul}>
           {filteredContacts.map((con) => (
-            <li key={con.id}>
-              {con.name} : {con.phone} <button onClick={() => handleDelate(con.id)}><FaTimes/></button>
+            <li className={css.li} key={con.id}>
+              {con.name} : {con.phone} <button className={css.button} onClick={() => handleDelate(con.id)}><FaTimes/></button>
             </li>
           ))}
         </ul>

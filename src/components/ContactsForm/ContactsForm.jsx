@@ -5,6 +5,7 @@ import { useDispatch , useSelector} from "react-redux";
 import { getContacts } from "../../redux/selectors";
 import { nanoid } from "nanoid";
 import Notiflix from "notiflix";
+import css from "./ContactsForm.module.css";
 
 
 
@@ -34,10 +35,10 @@ function ContactsForm (){
 
   return(
       <>
-        <form onSubmit={handleAddContact}>
-          <input type="text" placeholder="Name" onChange={e=>setName(e.target.value)}/>
-          <input type="number" placeholder="Phone" onChange={e=>setPhone(e.target.value)}/>
-          <button type="submit">ADD CONTACT</button>
+        <form className={css.form} onSubmit={handleAddContact}>
+          <input className={css.input} type="text" placeholder="Name" onChange={e=>setName(e.target.value)}/>
+          <input className={css.input} type="number" placeholder="Phone" onChange={e=>setPhone(e.target.value)}/>
+          <button className={css.button} type="submit">ADD CONTACT</button>
         </form>
       </>
   )

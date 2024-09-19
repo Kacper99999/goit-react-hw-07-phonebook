@@ -1,0 +1,31 @@
+
+
+body{
+    background-color: #FFF3E0;
+    font-family: sans-serif;
+    margin-left: 35px;
+}
+
+.form{
+    display: flex;
+    gap:5px;
+}
+
+.input{
+    border: 1px, solid #fee3b8;
+    width: 200px;
+    height: 20px;
+}
+
+.button{
+    width: 200px;
+    height: 23px;
+    border: 1px, solid #fee3b8;
+    background-color: white;
+}
+
+.button:hover{
+    background-color: rgb(20, 219, 20);
+    color: white;
+    transition: transform 0.3s;
+}

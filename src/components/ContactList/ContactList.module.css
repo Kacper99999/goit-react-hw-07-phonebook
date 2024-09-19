@@ -1,0 +1,35 @@
+.ul{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.li{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fffbf4;
+    width: 400px;
+    height: 30px;
+    align-items: center;
+    border-radius: 4px;
+    justify-content: space-between;
+}
+
+.button{
+    border: 0px solid;
+    border-radius: 4px;
+    background-color: rgb(246, 166, 166);
+    display: flex;
+    margin-left: 10px;
+    width: 25px;
+    height: 100%;
+    align-items: center;
+    color: white;
+}
+
+.button:hover{
+    background-color: rgb(251, 64, 64);
+    transition: transform 0.3s;
+}
