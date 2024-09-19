@@ -1,9 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import PropTypes from "prop-types";
-import { addContact } from "../redux/operations";
+import { addContact } from "../../redux/operations";
 import { useDispatch , useSelector} from "react-redux";
-import { getContacts } from "../redux/selectors";
+import { getContacts } from "../../redux/selectors";
 import { nanoid } from "nanoid";
 import Notiflix from "notiflix";
 
@@ -43,11 +42,5 @@ function ContactsForm (){
       </>
   )
 }
-
-// Contacts.propTypes = {
-//   handleChange: PropTypes.func,
-//   handleChange2: PropTypes.func,
-//   handleSubmit: PropTypes.func
-// }
 
 export default ContactsForm;

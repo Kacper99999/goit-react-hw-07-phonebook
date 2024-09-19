@@ -1,9 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchContacts, delateContact } from "../redux/operations";
-import { getContacts, getFilter } from "../redux/selectors";
+import { fetchContacts, delateContact } from "../../redux/operations";
+import { getContacts, getFilter } from "../../redux/selectors";
 import { FaTimes } from "react-icons/fa";
 
 function ContactList(){
@@ -48,24 +47,5 @@ function ContactList(){
      </>
     )
 }
-
-// ContactList.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string,
-//       name: PropTypes.string,
-//       number: PropTypes.string
-//     })
-//   ).isRequired,
-//   filter: PropTypes.string,
-//   filteredContacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string,
-//       name: PropTypes.string,
-//       number: PropTypes.string,
-//     })
-//   ).isRequired,
-//   removeContact: PropTypes.func,
-// };
 
 export default ContactList

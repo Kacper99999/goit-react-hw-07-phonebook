@@ -1,9 +1,7 @@
 import React from "react";
 import { useState , useEffect } from "react";
-import PropTypes from "prop-types";
-import { useSelector , useDispatch } from "react-redux";
-import { getFilter } from "../redux/selectors";
-import { filterContacts } from "../redux/filtersSlice";
+import { useDispatch } from "react-redux";
+import { filterContacts } from "../../redux/filtersSlice";
 
 
 function Filter(){
@@ -21,9 +19,5 @@ function Filter(){
         </>
  )
 }
-
-// Filter.propTypes = {
-//     search : PropTypes.func
-// }
 
 export default Filter;
