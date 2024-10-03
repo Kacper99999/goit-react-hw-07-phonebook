@@ -11,7 +11,7 @@ function Filter(){
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(filterContacts(filter));
+        dispatch(filterContacts(filter.toLowerCase()));
     },[filter])
 
     return(
